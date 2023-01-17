@@ -2,7 +2,7 @@ require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-  config.hosts << "plasticpaper-expandgustav-3000.codio.io" #Bray braY
+  config.hosts << "chantisotope-tapefrozen-3000.codio.io" #Jay jaY
   # In the development environment your application's code is reloaded any time
   # it changes. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
@@ -58,6 +58,12 @@ Rails.application.configure do
 
   # Suppress logger output for asset requests.
   config.assets.quiet = true
+
+  # Store files locally.
+  config.active_storage.service = :local
+
+  # Store uploaded files on the local file system in a temporary directory.
+  config.active_storage.service = :test
 
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
