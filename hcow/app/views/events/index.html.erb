@@ -3,12 +3,31 @@
 <h1>Events</h1>
 
 <div id="events">
-  <% @events.each do |event| %>
-    <%= render event %>
-    <p>
-      <%= link_to "Show this event", event %>
-    </p>
-  <% end %>
+    <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Title</th>
+        <th scope="col">Details</th>
+        <th scope="col">Occurence</th>
+        <th scope="col">Start</th>
+        <th scope="col">End</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @events.each do |event| %>
+        <tr>
+          <th scope="row"><%= event.title %></th>
+          <td><%=event.details %></td>
+          <td><%=event.occurence %></td>
+          <td><%=event.eventstart %></td>
+          <td><%=event.eventend %></td>
+          <td> <%= link_to "Show", event, class: "btn btn-primary"%> </td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
 </div>
 
-<%= link_to "New event", new_event_path %>
+<%= link_to "New Section", new_event_path, class: "btn btn-success"%>
+<%= link_to "Back", control_panel_index_path, class: "btn btn-warning"%>

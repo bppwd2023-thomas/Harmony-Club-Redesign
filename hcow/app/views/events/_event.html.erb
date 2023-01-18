@@ -1,32 +1,26 @@
 <div id="<%= dom_id event %>">
-  <p>
-    <strong>Title:</strong>
-    <%= event.title %>
-  </p>
-
-  <p>
-    <strong>Allday:</strong>
-    <%= event.allday %>
-  </p>
-
-  <p>
-    <strong>Eventstart:</strong>
-    <%= event.eventstart %>
-  </p>
-
-  <p>
-    <strong>Eventend:</strong>
-    <%= event.eventend %>
-  </p>
-
-  <p>
-    <strong>Occurence:</strong>
-    <%= event.occurence %>
-  </p>
-
-  <p>
-    <strong>Details:</strong>
-    <%= event.details %>
-  </p>
-
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Details</th>
+      <th scope="col">Occurence</th>
+      <th scope="col">Start</th>
+      <th scope="col">End</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row"><%= event.title %></th>
+      <td><%=event.details %></td>
+      <td><%=event.occurence %></td>
+      <td><%=event.eventstart %></td>
+      <td><%=event.eventend %></td>
+      <td><%= link_to "Edit", edit_event_path(@event), class: "btn btn-warning"%></td>
+      <td><%= button_to "Destroy", @event, method: :delete, class: "btn btn-danger"%></td>
+    </tr>
+  </tbody>
+</table>
 </div>

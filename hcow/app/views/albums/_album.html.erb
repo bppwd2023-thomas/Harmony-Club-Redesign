@@ -1,12 +1,20 @@
 <div id="<%= dom_id album %>">
-  <p>
-    <strong>Title:</strong>
-    <%= album.title %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= album.description %>
-  </p>
-
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Description</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row"><%= album.title %></th>
+      <td><%=album.description %></td>
+      <td><%= link_to "Edit", edit_album_path(@album), class: "btn btn-warning"%></td>
+      <td> <%= button_to "Destroy", @album, method: :delete, class: "btn btn-danger" %></td>
+    </tr>
+  </tbody>
+</table>
 </div>
