@@ -3,12 +3,25 @@
 <h1>Photos</h1>
 
 <div id="photos">
+    <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Title</th>
+        <th scope="col">Description</th>
+
+      </tr>
+    </thead>
+    <tbody>
   <% @photos.each do |photo| %>
-    <%= render photo %>
-    <p>
-      <%= link_to "Show this photo", photo %>
-    </p>
+        <tr>
+          <th scope="row"><%= photo.title %></th>
+          <td><%=photo.description %></td>
+          <td> <%= link_to "Show", photo, class: "btn btn-primary"%> </td>
+        </tr>
   <% end %>
+    </tbody>
+  </table>
 </div>
 
-<%= link_to "New photo", new_photo_path %>
+<%= link_to "New photo", new_photo_path, class: "btn btn-success"%>
+<%= link_to "Back", control_panel_index_path, class: "btn btn-warning"%>

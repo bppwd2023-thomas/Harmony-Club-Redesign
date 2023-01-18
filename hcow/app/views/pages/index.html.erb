@@ -3,12 +3,31 @@
 <h1>Pages</h1>
 
 <div id="pages">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Title</th>
+        <th scope="col"></th>
+        <th scope="col">Visiable</th>
+        <th scope="col"></th>
+        <th scope="col">Location</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
   <% @pages.each do |page| %>
-    <%= render page %>
-    <p>
-      <%= link_to "Show this page", page %>
-    </p>
+        <tr>
+          <th scope="row"><%= page.title %></th>
+          <td><%if page.visible == true %> is  <% else %> is not  <% end %></td>
+          <td> visable </td>
+          <td> in </td>
+          <td><%=page.destination %></td>
+          <td> <%= link_to "Show", page, class: "btn btn-primary"%> </td>
+        </tr>
   <% end %>
+    </tbody>
+  </table>
 </div>
 
-<%= link_to "New page", new_page_path %>
+<%= link_to "New page", new_page_path, class: "btn btn-success"%>
+<%= link_to "Back", control_panel_index_path, class: "btn btn-warning"%>

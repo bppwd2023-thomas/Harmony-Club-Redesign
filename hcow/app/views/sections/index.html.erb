@@ -3,12 +3,32 @@
 <h1>Sections</h1>
 
 <div id="sections">
+    <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Title</th>
+        <th scope="col"></th>
+        <th scope="col">Visiable</th>
+        <th scope="col"></th>
+        <th scope="col">Location</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
   <% @sections.each do |section| %>
-    <%= render section %>
-    <p>
-      <%= link_to "Show this section", section %>
-    </p>
+        <tr>
+          <th scope="row"><%= section.title %></th>
+          <td><%if section.visible == true %> is  <% else %> is not  <% end %></td>
+          <td> visable </td>
+          <td> in </td>
+          <td><%=section.location %></td>
+          <td> <%= link_to "Show", section, class: "btn btn-primary"%> </td>
+        </tr>
   <% end %>
+    </tbody>
+  </table>
+
 </div>
 
-<%= link_to "New section", new_section_path %>
+<%= link_to "New Section", new_section_path, class: "btn btn-success"%>
+<%= link_to "Back", control_panel_index_path, class: "btn btn-warning"%>

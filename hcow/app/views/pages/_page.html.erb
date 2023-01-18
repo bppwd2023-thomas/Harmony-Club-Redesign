@@ -1,37 +1,22 @@
 <div id="<%= dom_id page %>">
-  <p>
-    <strong>Title:</strong>
-    <%= page.title %>
-  </p>
-
-  <p>
-    <strong>Section:</strong>
-    <%= page.section_id %>
-  </p>
-
-  <p>
-    <strong>Position:</strong>
-    <%= page.position %>
-  </p>
-
-  <p>
-    <strong>Page type:</strong>
-    <%= page.page_type %>
-  </p>
-
-  <p>
-    <strong>Destination:</strong>
-    <%= page.destination %>
-  </p>
-
-  <p>
-    <strong>Visible:</strong>
-    <%= page.visible %>
-  </p>
-
-  <p>
-    <strong>Content:</strong>
-    <%= page.content %>
-  </p>
-
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">location</th>
+      <th scope="col">Visiable</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row"><%= page.title %></th>
+      <td><%if page.visible == true %> is visible <% else %> is not visible <% end %></td>
+      <td><%=page.destination %></td>
+      <td><%= link_to "Edit", edit_page_path(@page), class: "btn btn-warning"%></td>
+      <td> <%= button_to "Destroy", @page, method: :delete, class: "btn btn-danger" %></td>
+    </tr>
+  </tbody>
+</table>
 </div>

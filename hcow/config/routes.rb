@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+  get 'control_panel/index'
   devise_for :users
   get 'site/home'
+  get 'control_panel/index'
   resources :sponsors
   resources :photos
   resources :albums
