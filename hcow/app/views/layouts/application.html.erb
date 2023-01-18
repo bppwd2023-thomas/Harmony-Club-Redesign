@@ -13,9 +13,10 @@
 
   <body class="blue">
 
-    <nav class="navbar navbar-expand-lg red">
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg red text-uppercase fixed-top">
       <div class="container-fluid">
-        <a class="navbar-brand text-white" href="#">HARMONY CLUB OF WORCESTER</a>
+        <a class="navbar-brand text-white bold-text" href="#">Harmony Club of Worcester</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -24,12 +25,27 @@
             <li class="nav-item">
               <%= link_to "Home", site_home_path, class: "nav-link" %>
             </li>
+            <li>
+              <%= link_to "CRUD", control_panel_index_path, class: "nav-link" %>
+            </li>
+          </ul>
+          <ul class="navbar-nav ms-auto">
+            <% if(user_signed_in?) %>
+              <li class="nav-item">
+                <%= link_to current_user.username, user_profile_show_path, class: "nav-link" %>
+              </li>
+            <% else %>
+              <li class="nav-item">
+                <%= link_to "Login", new_user_session_path, class: "nav-link btn btn-secondary" %>
+              </li>
+            <% end %>
           </ul>
         </div>
       </div>
     </nav>
 
-    <div class="container white">
+    <!-- Page Content -->
+    <div class="container white content topPadding">
 
       <% if notice %>
         <p class="alert alert-success"><%= notice %></p>
@@ -39,6 +55,23 @@
       <% end %>
       <%= yield %>
 
+    </div>
+
+    <!-- Footer -->
+    <div class="red text-light pb-5">
+      <div class="container">
+        <div class="text-center border-bottom border-light p-1">
+          <a class="text-light text-decoration-none" href="/">Harmony Club of Worcester | <%= @current_year %></a>
+        </div>
+        <div class="row justify-content-center pt-1">
+          <!-- @sections.each do |s| -->
+            <div class="col-lg-2 col-md-4 col-sm-6 mb-3 text-center">
+              <h6 class="d-inline"><!-- s.title -->title goes here<h6>
+              <ul class="d-inline footer-list"><li></li><li></li><li></li>stuff goes here</ul>
+            </div>
+          <!-- end -->
+        </div>
+      </div>
     </div>
 
   </body>
