@@ -58,15 +58,17 @@
 
 .page-container {
   position: relative;
-  min-height: 100vh;
+  min-height: 10vh;
 }
 
 .content-wrap {
   padding-bottom: 2.5rem;
 }
 
-.footer {
-  position: absolute;
+#footer {
+  position: fixed;
   bottom: 0;
+  right: 0;
+  left: 0;
   width: 100%;
 }
