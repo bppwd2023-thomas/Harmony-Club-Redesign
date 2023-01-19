@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+  get 'calendar/index'
   get 'control_panel/index'
+  get 'simple_calendar/month_calendar'
   devise_for :users
   get 'site/home'
   get 'control_panel/index'

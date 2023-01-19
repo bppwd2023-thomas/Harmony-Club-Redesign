@@ -72,3 +72,12 @@
   left: 0;
   width: 100%;
 }
+
+.cBorder {
+  border-style: solid;
+  border-width: 5px;
+}
+tr.cBorder td{
+  border-style: solid;
+  border-width: 5px;
+}
