@@ -17,6 +17,10 @@
   </div>
 
   <div class="field">
+    <%= f.hidden_field :role, value: "administrator" %>
+  </div>
+
+  <div class="field">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>

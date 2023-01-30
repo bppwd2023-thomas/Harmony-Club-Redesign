@@ -1,3 +1,21 @@
+<h1 class="text-center">Featured Events</h1>
+
+<div class="row">
+  <% @featured_events.each do |e| %>
+    <div class="col-lg-3">
+      <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="photo go here">
+        <div class="card-body">
+          <h5 class="card-title text-center"><%= e.title %></h5>
+          <p class="card-text text-center"><%= e.details %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<br>
+
 <%= month_calendar do |date| %>
   <%= date.day %>
 <% end %>
