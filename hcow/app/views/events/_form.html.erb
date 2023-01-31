@@ -41,16 +41,10 @@
     <%= form.text_area :details %>
   </div>
 
-  <% if Event.where(featured: true).length() >= 4 && event.featured == false %>
-    <div>
-      <p>Maximum Limit Reached for Featured Events (4)</p>
-    </div>
-  <% else %>
-    <div>
-      <%= form.label :featured, style: "display: block" %>
-      <%= form.check_box :featured %>
-    </div>
-  <% end %>
+  <div>
+    <%= form.label :featured, style: "display: block" %>
+    <%= form.check_box :featured %>
+  </div>
 
   <div>
     <%= form.submit %>

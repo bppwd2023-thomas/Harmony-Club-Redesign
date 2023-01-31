@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
 
  @current_year = DateTime.now.year
 
+ @sections = Section.all
+
  protected
  def configure_permitted_parameters
   devise_parameter_sanitizer.permit(:sign_up, keys: [:role])

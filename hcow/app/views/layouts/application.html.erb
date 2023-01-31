@@ -24,24 +24,38 @@
       </div>
     </nav>
     <div class="collapse" id="navbarToggleExternalContent">
-      <div class="red ps-5 pb-3 pe-5">
+      <div class="red bold-text text-uppercase">
         <ul class="navbar-nav">
-          <li class="text-white text-uppercase bold-text">
+          <li class="text-white text-uppercase bold-text py-2 px-0 px-lg-3">
             <%= link_to "Home", site_home_path, class: "nav-link" %>
           </li>
-          <li class="text-white text-uppercase bold-text">
+          <li class="text-white text-uppercase bold-text py-2 px-0 px-lg-3">
             <%= link_to "CRUD", control_panel_index_path, class: "nav-link" %>
           </li>
-          <li class="text-white text-uppercase bold-text">
-          <%= link_to "Events", calendar_index_path, class: "nav-link" %>
+          <li class="text-white text-uppercase bold-text py-2 px-0 px-lg-3">
+            <%= link_to "Events", calendar_index_path, class: "nav-link" %>
           </li>
+
+          <% Section.all.each do |s| %>
+            <li class="nav-item dropdown mx-0 mx-lg-1">
+              <a class="dropdown-toggle nav-link py-3 px-0 px-lg-3 rounded text-white navbarDropdown" role="button" aria-expanded="false" data-bs-toggle="dropdown" href="#">
+                <%= s.title %>
+              </a>
+              <ul class="dropdown-menu" aria-label="navbarDropdown">
+                <% s.pages.each do |p| %>
+                  <%= link_to p.title, "#", class: "dropdown-item" %>
+                <% end %>
+              </ul>
+            </li>
+          <% end %>
+
           <% if(user_signed_in?) %>
             <li class="text-white text-uppercase bold-text">
               <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-danger"  %>
             </li>
           <% else %>
             <li class="text-white text-uppercase bold-text">
-              <%= link_to "Login", new_user_session_path, class: "nav-link btn btn-secondary" %>
+              <%= button_to "Login", new_user_session_path, class: "btn btn-secondary" %>
             </li>
           <% end %>
         </ul>
@@ -50,7 +64,6 @@
 
     <!-- Page Content -->
     <div class="container white content topPadding vh-100 pb-5">
-
       <% if notice %>
         <p class="alert alert-success"><%= notice %></p>
       <% end %>
