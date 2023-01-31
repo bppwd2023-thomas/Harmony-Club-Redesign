@@ -1,20 +1,16 @@
 <div id="<%= dom_id photo %>">
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Title</th>
-      <th scope="col">Description</th>
-      <th scope="col"></th>
-      <th scope="col"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row"><%= photo.title %></th>
-      <td><%=photo.description %></td>
-      <td><%= link_to "Edit", edit_photo_path(@photo), class: "btn btn-warning"%></td>
-      <td> <%= button_to "Destroy", @photo, method: :delete, class: "btn btn-danger" %></td>
-    </tr>
-  </tbody>
-</table>
+<div class="row">
+  <div class="col-lg-3">
+    <div class="card" style="width: 18rem;">
+      <% if photo.image.attached? %>
+        <%= image_tag(photo.image) %>
+      <% else %>
+        <p>no image attached</p>
+      <% end %>
+      <div class="card-body">
+        <h5 class="card-title text-center"><%= photo.title %></h5>
+        <p class="card-text text-center"><%= photo.description %></p>
+      </div>
+    </div>
+  </div>
 </div>
