@@ -3,6 +3,12 @@
 <%= render @page %>
 
 <div>
+ <% if @page.doc.attached? %>
+  
+ <% end %>
+</div>
+
+<div>
 
 <%= link_to "Back", pages_path, class: "btn btn-primary"%>
 

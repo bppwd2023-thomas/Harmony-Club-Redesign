@@ -38,13 +38,13 @@
             <%= link_to "Calendar", calendar_index_path, class: "nav-link" %>
           </li>
 
-          <% Section.all.each do |s| %>
+          <% Section.where(visible: true).each do |s| %>
             <li class="nav-item dropdown mx-0 mx-lg-1">
               <a class="dropdown-toggle nav-link py-3 px-0 px-lg-3 rounded text-white navbarDropdown" role="button" aria-expanded="false" data-bs-toggle="dropdown" href="#">
                 <%= s.title %>
               </a>
               <ul class="dropdown-menu" aria-label="navbarDropdown">
-                <% s.pages.each do |p| %>
+                <% s.pages.where(visible: true).each do |p| %>
                   <%= link_to p.title, page_path(id: p.id), class: "dropdown-item" %>
                 <% end %>
               </ul>
