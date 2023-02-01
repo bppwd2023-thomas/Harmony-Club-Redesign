@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount PdfjsViewer::Rails::Engine => "/pdfjs", as: 'pdfjs'
   get 'calendar/index'
   get 'control_panel/index'
   get 'simple_calendar/month_calendar'

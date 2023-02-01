@@ -45,7 +45,15 @@
               </a>
               <ul class="dropdown-menu" aria-label="navbarDropdown">
                 <% s.pages.where(visible: true).each do |p| %>
-                  <%= link_to p.title, page_path(id: p.id), class: "dropdown-item" %>
+                  <% if p.page_type == "Basic Page" %>
+                    <%= link_to p.title, page_path(id: p.id), class: "dropdown-item" %>
+                  <% elsif p.page_type == "Internal Link" %>
+                    <%= link_to p.title, p.destination, class: "dropdown-item" %>
+                  <% elsif p.page_type == "External Link" %>
+                    <%= link_to p.title, p.destination, class: "dropdown-item", target: :_blank %>
+                  <% elsif p.page_type == "PDF" %>
+                    <%= link_to p.title, page_path(id: p.id), class: "dropdown-item" %>
+                  <% end %>
                 <% end %>
               </ul>
             </li>

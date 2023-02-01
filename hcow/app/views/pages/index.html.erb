@@ -23,6 +23,8 @@
           <td> in </td>
           <td><%=page.destination %></td>
           <td> <%= link_to "Show", page, class: "btn btn-primary"%> </td>
+          <td> <%= link_to "Edit", edit_page_path(page), class: "btn btn-warning"%> </td>
+          <td> <%= button_to "Destroy", page, method: :delete, class: "btn btn-danger" %> </td>
         </tr>
   <% end %>
     </tbody>
