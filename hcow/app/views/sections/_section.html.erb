@@ -5,8 +5,6 @@
       <th scope="col">Title</th>
       <th scope="col">location</th>
       <th scope="col">Visiable</th>
-      <th scope="col"></th>
-      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
@@ -14,8 +12,6 @@
       <th scope="row"><%= section.title %></th>
       <td><%if section.visible == true %> is visible <% else %> is not visible <% end %></td>
       <td><%=section.location %></td>
-      <td><%= link_to "Edit", edit_section_path(@section), class: "btn btn-warning"%></td>
-      <td> <%= button_to "Destroy", @section, method: :delete, class: "btn btn-danger" %></td>
     </tr>
   </tbody>
 </table>

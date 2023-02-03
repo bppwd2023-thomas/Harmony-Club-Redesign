@@ -12,6 +12,8 @@
         <th scope="col"></th>
         <th scope="col">Location</th>
         <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
@@ -23,6 +25,8 @@
           <td> in </td>
           <td><%=section.location %></td>
           <td> <%= link_to "Show", section, class: "btn btn-primary"%> </td>
+          <td><%= link_to "Edit", section, class: "btn btn-warning"%></td>
+          <td> <%= button_to "Destroy", section, method: :delete, class: "btn btn-danger" %></td>
         </tr>
   <% end %>
     </tbody>
