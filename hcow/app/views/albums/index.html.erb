@@ -17,6 +17,8 @@
           <th scope="row"><%= album.title %></th>
           <td><%=album.description %></td>
           <td> <%= link_to "Show", album, class: "btn btn-primary"%> </td>
+          <td><%= link_to "Edit", edit_album_path(id: album.id), class: "btn btn-warning"%></td>
+          <td> <%= button_to "Destroy", album, method: :delete, class: "btn btn-danger" %></td>
         </tr>
   <% end %>
     </tbody>

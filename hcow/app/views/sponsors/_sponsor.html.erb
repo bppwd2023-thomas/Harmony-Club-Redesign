@@ -1,12 +1,18 @@
 <div id="<%= dom_id sponsor %>">
-  <p>
-    <strong>Title:</strong>
-    <%= sponsor.title %>
-  </p>
 
-  <p>
-    <strong>Website:</strong>
-    <%= sponsor.website %>
-  </p>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Website</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row"><%= sponsor.title %></th>
+      <td><%=sponsor.website %></td>
+    </tr>
+  </tbody>
+</table>
 
 </div>

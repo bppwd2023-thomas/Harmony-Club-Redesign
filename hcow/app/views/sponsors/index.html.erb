@@ -2,13 +2,27 @@
 
 <h1>Sponsors</h1>
 
-<div id="sponsors">
-  <% @sponsors.each do |sponsor| %>
-    <%= render sponsor %>
-    <p>
-      <%= link_to "Show this sponsor", sponsor %>
-    </p>
-  <% end %>
-</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Website</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @sponsors.all.each do |s| %>
+      <tr>
+        <th scope="row"><%= s.title %></th>
+        <td><%= s.website %></td>
+        <td><%= link_to "Show", sponsor_path(id: s.id), class: "btn btn-primary" %></td>
+        <td><%= link_to "Edit", edit_sponsor_path(id: s.id), class: "btn btn-warning"%></td>
+        <td> <%= button_to "Destroy", s, method: :delete, class: "btn btn-danger" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-<%= link_to "New sponsor", new_sponsor_path %>
+<%= link_to "New sponsor", new_sponsor_path, class: "btn btn-success" %>
+<%= link_to "Back", control_panel_index_path, class: "btn btn-warning"%>
