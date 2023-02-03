@@ -2,3 +2,4 @@
 //= link_tree ../builds
 //= link custom.css
 //= link pdfjs_viewer/application.css
+//= link pdfjs_viewer/application.js

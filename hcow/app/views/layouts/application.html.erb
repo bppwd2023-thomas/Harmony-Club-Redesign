@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    
+    <%= tinymce_assets %>
+    <script type="text/javascript" src="/assets/tinymce.js"></script>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "custom" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
@@ -14,7 +16,6 @@
   <body class="blue">
 
     <!-- Navigation Bar -->
-    
     <nav class="navbar navbar-dark red py-4">
       <div class="container-fluid">
         <a class="navbar-brand text-white bold-text text-uppercase ps-3 fs-3" href="/site/home">Harmony Club of Worcester</a>
@@ -34,7 +35,6 @@
               <%= link_to "Control Panel", control_panel_index_path, class: "nav-link" %>
             </li>
           <% end %>
-
           <% Section.where(visible: true).each do |s| %>
             <li class="nav-item dropdown mx-0 mx-lg-1">
               <a class="dropdown-toggle nav-link py-3 px-0 px-lg-3 rounded text-white navbarDropdown" role="button" aria-expanded="false" data-bs-toggle="dropdown" href="#">
@@ -55,7 +55,6 @@
               </ul>
             </li>
           <% end %>
-
           <div class="px-3 pb-3">
             <% if(user_signed_in?) %>
               <li class="text-white text-uppercase bold-text">

@@ -1,0 +1,21 @@
+<h1><%= @album.title %></h1><br>
+
+<h3>Photos:</h3>
+
+<div class="row">
+  <% @album.photos.each do |p| %>
+    <div class="col-lg-3">
+      <div class="card" style="width: 18rem;">
+        <% if p.image.attached? %>
+          <%= image_tag(p.image) %>
+        <% else %>
+          <p>no image attached</p>
+        <% end %>
+        <div class="card-body">
+          <h5 class="card-title text-center"><%= p.title %></h5>
+          <p class="card-text text-center"><%= p.description %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -29,14 +29,7 @@
 
     <div>
       <%= form.label :page_type, style: "display: block" %>
-      <%= form.select :page_type, 
-                      ["", "Basic Page", "Internal Link", "External Link", "PDF"], 
-                      {}, 
-                      data: {
-                        action: "change->page#toggle", 
-                        "page_target": "select"
-                      } 
-        %>
+      <%= form.select :page_type, ["", "Basic Page", "Internal Link", "External Link", "PDF"], {}, data: {action: "change->page#toggle", "page_target": "select"} %>
     </div>
 
     <div>
@@ -51,7 +44,9 @@
 
     <div data-page-target="content" style="display: none">
       <%= form.label :content, style: "display: block" %>
-      <%= form.text_area :content %>
+      <p class="text-muted">If text editor doesn't appear, refresh the page | also for easy shortcuts use, click the help button on the editor</p>
+      <%= form.text_area :content, :class => "tinymce" %>
+      <%= tinymce %>
     </div>
 
     <div data-page-target="fileSelector" style="display: none">

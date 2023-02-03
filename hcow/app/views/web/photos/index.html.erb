@@ -1,0 +1,20 @@
+<h1>Albums</h1>
+
+<div class="row">
+  <div class="col-lg-3">
+    <div class="card" style="width: 18rem;">
+      <% Album.all.each do |album| %>
+       <% if album.photos[0].image.attached? %>
+         <%= image_tag(album.photos[0].image) %>
+       <% else %>
+         <p>Empty Album</p>
+       <% end %>
+       <div class="card-body">
+         <h5 class="card-title text-center"><%= album.title %></h5>
+         <p class="card-text text-center"><%= album.description %></p>
+         <div class="justify-content-center"><%= link_to "See Album", web_photos_show_path(id: album.id), class: "btn btn-primary"%></div>
+       </div>
+      <% end %>
+    </div>
+  </div>
+</div>

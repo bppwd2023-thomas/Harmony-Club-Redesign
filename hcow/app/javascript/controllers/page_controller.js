@@ -10,13 +10,7 @@ export default class extends Controller {
      this.destinationTarget.style.display = "none";
      this.fileSelectorTarget.style.display = "none";
 
-   }else if(this.selectTarget.value == "Internal Link") {
-
-     this.contentTarget.style.display = "none";
-     this.destinationTarget.style.display = "block";
-     this.fileSelectorTarget.style.display = "none";
-
-   }else if(this.selectTarget.value == "External Link") {
+   }else if(this.selectTarget.value == "Internal Link" || this.selectTarget.value == "External Link") {
 
      this.contentTarget.style.display = "none";
      this.destinationTarget.style.display = "block";

@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  namespace :web do
+    get 'photos/index'
+    get 'photos/show'
+    get 'events/calendar'
+    get 'events/show'
+  end
   mount PdfjsViewer::Rails::Engine => "/pdfjs", as: 'pdfjs'
   get 'calendar/index'
   get 'control_panel/index'
