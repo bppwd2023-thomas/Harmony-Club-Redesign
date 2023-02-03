@@ -253,7 +253,7 @@ DEPENDENCIES
   cssbundling-rails
   debug
   devise
-  image_processing (~> 1.2)
+  image_processing (~> 1.12, >= 1.12.2)
   jbuilder
   jsbundling-rails
   pdfjs_viewer-rails

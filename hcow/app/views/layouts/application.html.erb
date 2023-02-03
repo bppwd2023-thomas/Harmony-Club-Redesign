@@ -15,9 +15,9 @@
 
     <!-- Navigation Bar -->
     
-    <nav class="navbar navbar-dark red">
+    <nav class="navbar navbar-dark red py-4">
       <div class="container-fluid">
-        <a class="navbar-brand text-white bold-text text-uppercase ps-3" href="/site/home">Harmony Club of Worcester</a>
+        <a class="navbar-brand text-white bold-text text-uppercase ps-3 fs-3" href="/site/home">Harmony Club of Worcester</a>
         <button class="navbar-toggler ms-auto blue" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -34,9 +34,6 @@
               <%= link_to "Control Panel", control_panel_index_path, class: "nav-link" %>
             </li>
           <% end %>
-          <li class="text-white text-uppercase bold-text py-2 px-0 px-lg-3">
-            <%= link_to "Calendar", calendar_index_path, class: "nav-link" %>
-          </li>
 
           <% Section.where(visible: true).each do |s| %>
             <li class="nav-item dropdown mx-0 mx-lg-1">
@@ -75,27 +72,29 @@
     </div>
 
     <!-- Page Content -->
-    <div class="container white content topPadding vh-100 pb-5">
-      <% if notice %>
-        <p class="alert alert-success"><%= notice %></p>
-      <% end %>
-      <% if alert %>
-        <p class="alert alert-danger"><%= alert %></p>
-      <% end %>
-      <%= yield %>
-
+    <div class="container white content topPadding vh-auto pb-5">
+      <div class="container white">
+        <% if notice %>
+          <p class="alert alert-success"><%= notice %></p>
+        <% end %>
+        <% if alert %>
+          <p class="alert alert-danger"><%= alert %></p>
+        <% end %>
+        <%= yield %>
+        <br><br><br><br>
+      </div>
     </div>
 
     <!-- Footer -->
     <div id="footer">
-      <div class="page-container red text-light">
+      <div id="footer-container" class="page-container red text-light">
         <div class="content-wrap">
           <div class="text-center border-bottom border-light">
             <a class="text-light text-decoration-none" href="/">Harmony Club of Worcester | <%= @current_year %></a>
           </div>
-          <div class="row justify-content-center pt-1">
+          <div class="justify-content-center">
             <!-- @sections.each do |s| -->
-              <div class="col-lg-2 col-md-4 col-sm-6 mb-3 text-center">
+              <div class="text-center">
                 <h6 class="d-inline"><!-- s.title -->title goes here<h6>
                 <ul class="d-inline footer-list"><li></li><li></li><li></li>stuff goes here</ul>
               </div>

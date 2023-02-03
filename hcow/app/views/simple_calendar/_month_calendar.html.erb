@@ -19,11 +19,44 @@
         <tr class = "cBorder">
           <% week.each do |day| %>
             <%= content_tag :td, class: calendar.td_classes_for(day) do %>
-              <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(passed_block) %>
-                <% capture_haml(day, sorted_events.fetch(day, []), &passed_block) %>
-              <% else %>
-                <% passed_block.call day, sorted_events.fetch(day, []) %>
-              <% end %>
+              <div class="pb-4">
+                <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(passed_block) %>
+                  <% capture_haml(day, sorted_events.fetch(day, []), &passed_block) %>
+                <% else %>
+                  <% passed_block.call day, sorted_events.fetch(day, []) %>
+                <% end %>
+                <% Event.all.each do |e| %>
+                  <% if day <= e.eventstart.to_date && day >= e.eventend.to_date %>
+                    <div>
+                      <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#eventModal">
+                        <%= e.title %>
+                      </button>
+
+                      <div class="modal fade" id="eventModal" tabindex="-1" aria-labelledby="eventModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h1 class="modal-title fs-5" id="eventModalLabel"><%= e.title %></h1>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              <div class="text-center"><%= e.details %></div>
+                              <div class="text-center">Starts: <%= e.eventstart %></div>
+                              <div class="text-center">Ends: <%= e.eventend %></div>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  <% else %>
+                    <p> </p>
+                  <% end %>
+                <% end %>
+                <br>
+              </div>
             <% end %>
           <% end %>
         </tr>

@@ -1,28 +1,32 @@
 class PagesController < ApplicationController
   before_action :set_page, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!
 
   # GET /pages or /pages.json
   def index
     @pages = Page.all
+    authorize @pages
   end
 
   # GET /pages/1 or /pages/1.json
   def show
+    authorize @page
   end
 
   # GET /pages/new
   def new
     @page = Page.new
+    authorize @page
   end
 
   # GET /pages/1/edit
   def edit
+    authorize @page
   end
 
   # POST /pages or /pages.json
   def create
     @page = Page.new(page_params)
+    authorize @page
 
     respond_to do |format|
       if @page.save
@@ -37,6 +41,7 @@ class PagesController < ApplicationController
 
   # PATCH/PUT /pages/1 or /pages/1.json
   def update
+    authorize @page
     respond_to do |format|
       if @page.update(page_params)
         format.html { redirect_to page_url(@page), notice: "Page was successfully updated." }
@@ -51,6 +56,7 @@ class PagesController < ApplicationController
   # DELETE /pages/1 or /pages/1.json
   def destroy
     @page.destroy
+    authorize @page
 
     respond_to do |format|
       format.html { redirect_to pages_url, notice: "Page was successfully destroyed." }
