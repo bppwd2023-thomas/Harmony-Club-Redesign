@@ -1,15 +1,16 @@
 <div id="<%= dom_id photo %>">
-<div class="row">
-  <div class="col-lg-3">
-    <div class="card" style="width: 18rem;">
-      <% if photo.image.attached? %>
-        <%= image_tag(photo.image) %>
-      <% else %>
-        <p>no image attached</p>
-      <% end %>
-      <div class="card-body">
-        <h5 class="card-title text-center"><%= photo.title %></h5>
-        <p class="card-text text-center"><%= photo.description %></p>
+  <div class="row">
+    <div class="col-lg-3">
+      <div class="card" style="width: 18rem;">
+        <% if photo.image.attached? %>
+          <%= image_tag(photo.image) %>
+        <% else %>
+          <p>no image attached</p>
+        <% end %>
+        <div class="card-body">
+          <h5 class="card-title text-center"><%= photo.title %></h5>
+          <p class="card-text text-center"><%= photo.description %></p>
+        </div>
       </div>
     </div>
   </div>

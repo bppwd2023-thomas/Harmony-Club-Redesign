@@ -1,18 +1,17 @@
 <div id="<%= dom_id sponsor %>">
-
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Title</th>
-      <th scope="col">Website</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row"><%= sponsor.title %></th>
-      <td><%=sponsor.website %></td>
-    </tr>
-  </tbody>
-</table>
-
+  <div class="row">
+    <div class="col-lg-3">
+      <div class="card" style="width: 18rem;">
+        <% if sponsor.image.attached? %>
+          <%= image_tag(sponsor.image) %>
+        <% else %>
+          <p>no image attached</p>
+        <% end %>
+        <div class="card-body">
+          <h5 class="card-title text-center"><%= sponsor.title %></h5>
+          <p class="card-text text-center"><%= sponsor.website %></p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
